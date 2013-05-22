@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Installat and uninstall function
+ */
+
+/**
+ * Implements hook_install().
+ */
+function tablehover_install() {
+  variable_set('tablehover_type', 1);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function tablehover_uninstall() {
+  /*
+   *variable_del('upload_file_types');
+   */
+  variable_del('tablehover_type');
+}

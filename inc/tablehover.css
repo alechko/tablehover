@@ -1,0 +1,21 @@
+td.click,
+th.click {
+  background-color: #cfdfff;
+}
+td.hover,
+tr.hover {
+  background-color: #d8d8d8;
+}
+/*th.hover, tfoot td.hover*/
+th.hover,
+tr.total td.hover {
+  background-color: #d8d8d8;
+}
+td.hovercell,
+th.hovercell {
+  background-color: #d8d8d8;
+}
+td.hoverrow,
+th.hoverrow {
+  background-color: #d8d8d8;
+}

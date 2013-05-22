@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ * Module file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function tablehover_menu() {
+  $items = array();
+  $items['admin/config/user-interface/tablehover'] = array(
+    'title' => 'Tablehover settings',
+    'description' => 'Configure jQuery tablehover plugin settings.',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tablehover_settings_form'),
+    'file' => 'tablehover.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function tablehover_init() {
+  $module_path = drupal_get_path('module', 'tablehover');
+  $file_name = array(
+    0 => 'jquery.tablehover.js',
+    1 => 'jquery.tablehover.min.js',
+    2 => 'jquery.tablehover.pack.js',
+  );
+  drupal_add_js($module_path . '/inc/' . $file_name[variable_get('tablehover_type', 1)], array('scope' => 'footer'));
+  drupal_add_js($module_path . '/inc/tablehover.js', array('scope' => 'footer'));
+  drupal_add_css($module_path . '/inc/tablehover.css');
+}
